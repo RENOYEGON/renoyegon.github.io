@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Project</title>
+    <style>
+        /* Overall Background Styling */
+        body {
+            background-color: #A5A778; /* Updated background color */
+            color: black; /* Text color set to black for readability */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 16px; /* Set a readable font size */
+        }
+
+        /* Section Styling */
+        #code-findings {
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Heading Links Styling */
+        .links {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            background-color: #6A4C93; /* Purple shade */
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .links a:hover {
+            background-color: #50337D; /* Darker purple on hover */
+        }
+
+        /* Code Execution Section Styling */
+        #code-execution-section {
+            background-color: #E2E9FF;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Code Block Styling */
+        pre {
+            background-color: #1E1E1E;
+            color: #FED7A5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: "Courier New", monospace;
+        }
+
+        /* General Styling */
+        h2, h3 {
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+    /* Section Content */
+    .section-content {
+        margin-bottom: 10px;
+    }
+
+    /* Sub-Heading for Insights */
+    .sub-heading {
+        font-weight: bold;
+    }
+
+    /* Footer Styling */
+    footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    footer a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        background-color: #6A4C93; /* Purple shade */
+        padding: 10px 15px;
+        border-radius: 5px;
+        margin: 5px;
+    }
+
+    footer a:hover {
+        background-color: #50337D;
+    }
+    </style>
+</head>
+<body>
+    <div id="code-findings">
+        <!-- Heading Links -->
+        <div class="links">
+            <a href="#code-execution">View Code Execution</a>
+            <a href="#final-report">View Final Report</a>
+        </div>
+
+        <!-- Code Execution Section -->
+        <div id="code-execution-section">
+            <h2 id="code-execution">Code Execution</h2>
+            <pre>
+# Import necessary libraries
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+# Load the datasets
+df= pd.read_csv(r"C:\Users\babysitter\Desktop\datasets\Balaji Fast Food Sales.csv",delimiter=',')   
+df.head()
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>order_id</th>
+          <th>date</th>
+          <th>item_name</th>
+          <th>item_type</th>
+          <th>item_price</th>
+          <th>quantity</th>
+          <th>transaction_amount</th>
+          <th>transaction_type</th>
+          <th>received_by</th>
+          <th>time_of_sale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1</td>
+          <td>07/03/2022</td>
+          <td>Aalopuri</td>
+          <td>Fastfood</td>
+          <td>20</td>
+          <td>13</td>
+          <td>260</td>
+          <td>NaN</td>
+          <td>Mr.</td>
+          <td>Night</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>2</td>
+          <td>8/23/2022</td>
+          <td>Vadapav</td>
+          <td>Fastfood</td>
+          <td>20</td>
+          <td>15</td>
+          <td>300</td>
+          <td>Cash</td>
+          <td>Mr.</td>
+          <td>Afternoon</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>3</td>
+          <td>11/20/2022</td>
+          <td>Vadapav</td>
+          <td>Fastfood</td>
+          <td>20</td>
+          <td>1</td>
+          <td>20</td>
+          <td>Cash</td>
+          <td>Mr.</td>
+          <td>Afternoon</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>4</td>
+          <td>02/03/2023</td>
+          <td>Sugarcane juice</td>
+          <td>Beverages</td>
+          <td>25</td>
+          <td>6</td>
+          <td>150</td>
+          <td>Online</td>
+          <td>Mr.</td>
+          <td>Night</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>5</td>
+          <td>10/02/2022</td>
+          <td>Sugarcane juice</td>
+          <td>Beverages</td>
+          <td>25</td>
+          <td>8</td>
+          <td>200</td>
+          <td>Online</td>
+          <td>Mr.</td>
+          <td>Evening</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+df.shape
+(1000, 10)
+df.columns
+Index(['order_id', 'date', 'item_name', 'item_type', 'item_price', 'quantity',
+       'transaction_amount', 'transaction_type', 'received_by',
+       'time_of_sale'],
+      dtype='object')
+# Ensure the 'date' column is in datetime format
+df['date'] = pd.to_datetime(df['date'])
+
+# Check for missing values
+df.isnull().sum()
+order_id                0
+date                    0
+item_name               0
+item_type               0
+item_price              0
+quantity                0
+transaction_amount      0
+transaction_type      107
+received_by             0
+time_of_sale            0
+dtype: int64
+df['transaction_type'] = df['transaction_type'].fillna('Other')
+
+duplicates = df[df.duplicated()]
+# Check if there are duplicates 
+if duplicates.empty:
+    print("No duplicates found")
+else:
+    print("Duplicates found")
+    print(duplicates)
+    No duplicates found
+
+df.head()
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>order_id</th>
+          <th>date</th>
+          <th>item_name</th>
+          <th>item_type</th>
+          <th>item_price</th>
+          <th>quantity</th>
+          <th>transaction_amount</th>
+          <th>transaction_type</th>
+          <th>received_by</th>
+          <th>time_of_sale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1</td>
+          <td>2022-07-03</td>
+          <td>Aalopuri</td>
+          <td>Fastfood</td>
+          <td>20</td>
+          <td>13</td>
+          <td>260</td>
+          <td>Other</td>
+          <td>Mr.</td>
+          <td>Night</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>2</td>
+          <td>2022-08-23</td>
+          <td>Vadapav</td>
+          <td>Fastfood</td>
+          <td>20</td>
+          <td>15</td>
+          <td>300</td>
+          <td>Cash</td>
+          <td>Mr.</td>
+          <td>Afternoon</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>3</td>
+          <td>2022-11-20</td>
+          <td>Vadapav</td>
+          <td>Fastfood</td>
+          <td>20</td>
+          <td>1</td>
+          <td>20</td>
+          <td>Cash</td>
+          <td>Mr.</td>
+          <td>Afternoon</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>4</td>
+          <td>2023-02-03</td>
+          <td>Sugarcane juice</td>
+          <td>Beverages</td>
+          <td>25</td>
+          <td>6</td>
+          <td>150</td>
+          <td>Online</td>
+          <td>Mr.</td>
+          <td>Night</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>5</td>
+          <td>2022-10-02</td>
+          <td>Sugarcane juice</td>
+          <td>Beverages</td>
+          <td>25</td>
+          <td>8</td>
+          <td>200</td>
+          <td>Online</td>
+          <td>Mr.</td>
+          <td>Evening</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+df.describe()
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>order_id</th>
+          <th>date</th>
+          <th>item_price</th>
+          <th>quantity</th>
+          <th>transaction_amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>count</th>
+          <td>1000.000000</td>
+          <td>1000</td>
+          <td>1000.000000</td>
+          <td>1000.000000</td>
+          <td>1000.000000</td>
+        </tr>
+        <tr>
+          <th>mean</th>
+          <td>500.500000</td>
+          <td>2022-10-03 14:39:50.400000</td>
+          <td>33.315000</td>
+          <td>8.162000</td>
+          <td>275.230000</td>
+        </tr>
+        <tr>
+          <th>min</th>
+          <td>1.000000</td>
+          <td>2022-04-01 00:00:00</td>
+          <td>20.000000</td>
+          <td>1.000000</td>
+          <td>20.000000</td>
+        </tr>
+        <tr>
+          <th>25%</th>
+          <td>250.750000</td>
+          <td>2022-07-04 00:00:00</td>
+          <td>20.000000</td>
+          <td>4.000000</td>
+          <td>120.000000</td>
+        </tr>
+        <tr>
+          <th>50%</th>
+          <td>500.500000</td>
+          <td>2022-10-07 12:00:00</td>
+          <td>25.000000</td>
+          <td>8.000000</td>
+          <td>240.000000</td>
+        </tr>
+        <tr>
+          <th>75%</th>
+          <td>750.250000</td>
+          <td>2023-01-02 00:00:00</td>
+          <td>50.000000</td>
+          <td>12.000000</td>
+          <td>360.000000</td>
+        </tr>
+        <tr>
+          <th>max</th>
+          <td>1000.000000</td>
+          <td>2023-03-30 00:00:00</td>
+          <td>60.000000</td>
+          <td>15.000000</td>
+          <td>900.000000</td>
+        </tr>
+        <tr>
+          <th>std</th>
+          <td>288.819436</td>
+          <td>NaN</td>
+          <td>14.921744</td>
+          <td>4.413075</td>
+          <td>204.402979</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+# Top-selling items
+top_items = df.groupby('item_name').agg(
+    total_quantity=('quantity', 'sum'),
+    total_revenue=('transaction_amount', 'sum')
+).sort_values(by='total_quantity', ascending=False).head(10)
+
+top_items
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>total_quantity</th>
+          <th>total_revenue</th>
+        </tr>
+        <tr>
+          <th>item_name</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Cold coffee</th>
+          <td>1361</td>
+          <td>54440</td>
+        </tr>
+        <tr>
+          <th>Sugarcane juice</th>
+          <td>1278</td>
+          <td>31950</td>
+        </tr>
+        <tr>
+          <th>Panipuri</th>
+          <td>1226</td>
+          <td>24520</td>
+        </tr>
+        <tr>
+          <th>Frankie</th>
+          <td>1150</td>
+          <td>57500</td>
+        </tr>
+        <tr>
+          <th>Sandwich</th>
+          <td>1097</td>
+          <td>65820</td>
+        </tr>
+        <tr>
+          <th>Aalopuri</th>
+          <td>1044</td>
+          <td>20880</td>
+        </tr>
+        <tr>
+          <th>Vadapav</th>
+          <td>1006</td>
+          <td>20120</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+# Revenue contribution by item type
+item_type_revenue = df.groupby('item_type')['transaction_amount'].sum()
+
+# Plot revenue contribution
+plt.figure(figsize=(8, 5))
+item_type_revenue.plot(kind='bar', color=['skyblue', 'lightgreen'])
+plt.title('Revenue Contribution by Item Type')
+plt.xlabel('Item Type')
+plt.ylabel('Total Revenue')
+plt.show()
+</pre>
+<h3>Findings</h3>
+<!-- Add the image below the code section -->
+<img src="assets/images/Revenue_Contribution_by_Item_Type.png" alt="Revenue Contribution by Item Type">
+<p><strong>Observation:</strong> Beverages contribute 80,000 and Fastfood contributes 180,000, this provides a clear indication of how much each category is contributing to the overall revenue..</p>
+</pre>
+</div>
+<pre>
+# Extract month and year
+df['year_month'] = df['date'].dt.to_period('M')
+
+# Group data by month and calculate total transaction amounts
+monthly_sales = df.groupby('year_month')['transaction_amount'].sum().reset_index()
+
+# Convert 'year_month' back to datetime for plotting
+monthly_sales['year_month'] = monthly_sales['year_month'].dt.to_timestamp()
+
+# Calculate monthly growth rates
+monthly_sales['growth_rate'] = monthly_sales['transaction_amount'].pct_change() * 100
+
+monthly_sales
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>year_month</th>
+          <th>transaction_amount</th>
+          <th>growth_rate</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>2022-04-01</td>
+          <td>17670</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>2022-05-01</td>
+          <td>26570</td>
+          <td>50.367855</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>2022-06-01</td>
+          <td>17335</td>
+          <td>-34.757245</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>2022-07-01</td>
+          <td>19490</td>
+          <td>12.431497</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>2022-08-01</td>
+          <td>22305</td>
+          <td>14.443304</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>2022-09-01</td>
+          <td>18640</td>
+          <td>-16.431293</td>
+        </tr>
+        <tr>
+          <th>6</th>
+          <td>2022-10-01</td>
+          <td>27205</td>
+          <td>45.949571</td>
+        </tr>
+        <tr>
+          <th>7</th>
+          <td>2022-11-01</td>
+          <td>22900</td>
+          <td>-15.824297</td>
+        </tr>
+        <tr>
+          <th>8</th>
+          <td>2022-12-01</td>
+          <td>23460</td>
+          <td>2.445415</td>
+        </tr>
+        <tr>
+          <th>9</th>
+          <td>2023-01-01</td>
+          <td>28670</td>
+          <td>22.208014</td>
+        </tr>
+        <tr>
+          <th>10</th>
+          <td>2023-02-01</td>
+          <td>25595</td>
+          <td>-10.725497</td>
+        </tr>
+        <tr>
+          <th>11</th>
+          <td>2023-03-01</td>
+          <td>25390</td>
+          <td>-0.800938</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+# Plot Monthly Sales
+plt.figure(figsize=(10, 6))
+plt.plot(monthly_sales['year_month'], monthly_sales['transaction_amount'], marker='o', linestyle='-', label='Monthly Sales')
+plt.title('Monthly Sales Trends')
+plt.xlabel('Month')
+plt.ylabel('Total Transaction Amount')
+plt.grid()
+plt.legend()
+
+# Plot Monthly Growth Rates
+plt.twinx()  # Add a secondary y-axis
+plt.plot(monthly_sales['year_month'], monthly_sales['growth_rate'], color='red', marker='x', linestyle='--', label='Growth Rate (%)')
+plt.ylabel('Growth Rate (%)')
+plt.legend(loc='upper left')
+plt.show()
+</pre>
+<h3>Findings</h3>
+<!-- Add the image below the code section -->
+<img src="assets/images/monthly_sales_trend.png" alt="Monthly Sales Trend">
+<p><strong>Observation:</strong> Sales peaked in October 2022, with significant growth during holiday seasons.</p>
+</pre>
+</div>
+<pre>
+# Group data by 'item_name' and calculate total revenue and quantity
+best_selling = df.groupby('item_name').agg(
+    total_revenue=('transaction_amount', 'sum'),
+    total_quantity=('quantity', 'sum')
+).reset_index()
+
+# Sort items by total revenue
+best_selling_revenue = best_selling.sort_values(by='total_revenue', ascending=False)
+
+best_selling_revenue.head(5)
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>item_name</th>
+          <th>total_revenue</th>
+          <th>total_quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>4</th>
+          <td>Sandwich</td>
+          <td>65820</td>
+          <td>1097</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Frankie</td>
+          <td>57500</td>
+          <td>1150</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>Cold coffee</td>
+          <td>54440</td>
+          <td>1361</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>Sugarcane juice</td>
+          <td>31950</td>
+          <td>1278</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>Panipuri</td>
+          <td>24520</td>
+          <td>1226</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+# Sort items by total quantity sold
+best_selling_quantity = best_selling.sort_values(by='total_quantity', ascending=False)
+
+best_selling_quantity.head(5)
+Top 5 Best-Selling Items Analysis
+<div>
+    <style scoped>
+        .dataframe tbody tr th:only-of-type {
+            vertical-align: middle;
+        }
+    
+        .dataframe tbody tr th {
+            vertical-align: top;
+        }
+    
+        .dataframe thead th {
+            text-align: right;
+        }
+    </style>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>item_name</th>
+          <th>total_revenue</th>
+          <th>total_quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>1</th>
+          <td>Cold coffee</td>
+          <td>54440</td>
+          <td>1361</td>
+        </tr>
+        <tr>
+          <th>5</th>
+          <td>Sugarcane juice</td>
+          <td>31950</td>
+          <td>1278</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>Panipuri</td>
+          <td>24520</td>
+          <td>1226</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>Frankie</td>
+          <td>57500</td>
+          <td>1150</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>Sandwich</td>
+          <td>65820</td>
+          <td>1097</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+From the data provided, we can identify the **top 5 items** based on two key metrics: **Total Revenue** and **Total Quantity Sold**.
+
+1. Top 5 Items by Total Revenue
+ |   Rank  |     Item Name       |   Total Revenue    |   Total Quantity Sold   |
+ |----------|---------------------|-------------------|-------------------------|
+ | 1        | Sandwich            | 65,820            | 1,097                   |
+ | 2        | Frankie             | 57,500            | 1,150                   |
+ | 3        | Cold Coffee         | 54,440            | 1,361                   |
+ | 4        | Sugarcane Juice     | 31,950            | 1,278                   |
+ | 5        | Panipuri            | 24,520            | 1,226                   |
+
+2. Top 5 Items by Quantity Sold
+ |    Rank  |     Item Name       |  Total Revenue    |    Total Quantity Sold  |
+ |----------|---------------------|-------------------|-------------------------|
+ | 1        | Cold Coffee         | 54,440            | 1,361                   |
+ | 2        | Sugarcane Juice     | 31,950            | 1,278                   |
+ | 3        | Panipuri            | 24,520            | 1,226                   |
+ | 4        | Frankie             | 57,500            | 1,150                   |
+ | 5        | Sandwich            | 65,820            | 1,097                   |
+</pre>
+</div>
+        <!-- Final Report Section -->
+        <h2 id="final-report">Final Report</h2>
+        <p>
+            <strong>Background and Overview:</strong><br>
+            <p class="section-content">The analysis evaluates the restaurant's sales trends, top-performing items, and overall revenue contributions from April 2022 to March 2023. Key metrics include total monthly sales, item-level performance by revenue and quantity, and revenue contributions segmented by item type.</p>
+
+            <hr>
+
+            <strong>Relationship Between Tables:</strong><br>
+            <p class="section-content">The dataset contains the following relationships:</p>
+            <ul class="section-content">
+                <li>Item-Level Data: Total revenue and quantity sold provide item performance insights.</li>
+                <li>Monthly Trends: Transaction amounts and growth rates track sales trends over time.</li>
+                <li>Revenue by Item Type: Aggregates sales contributions from Beverages and Fastfood.</li>
+            </ul>
+
+            <hr>
+
+            <strong>Executive Summary:</strong><br>
+            <ul class="section-content">
+                <li><span class="sub-heading">Sales Trends:</span> Sales peaked in October 2022 with 27,205 in total transaction value. December 2022 and January 2023 showed consecutive recovery peaks at 23,460 and 28,670, indicating strong holiday season activity.</li>
+                <li><span class="sub-heading">Top-Selling Items:</span> The top-performing item by quantity sold was Cold Coffee (1,361 units). The highest revenue contributor was Sandwich (65,820).</li>
+                <li><span class="sub-heading">Revenue Contribution:</span> Fastfood items contributed 68% of total revenue (~180,000). Beverages made up 32% (~88,000).</li>
+            </ul>
+
+            <hr>
+
+            <strong>Insight Deep Dive:</strong><br>
+
+            <strong>Insight 1: Monthly Sales Trends</strong><br>
+            <p class="section-content">
+                <span class="sub-heading">Data:</span> Total transaction amounts fluctuated, peaking in October 2022 at 27,205, with a 45.9% growth rate from the previous month.
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Metric:</span> Average monthly revenue: 23,500.
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Observation:</span> High volatility in sales with two recovery peaks during October and January.
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Recommendation:</span> Focus on promotional strategies during holiday seasons like October and December to drive sales spikes.
+            </p>
+
+            <hr>
+
+            <strong>Insight 2: Top-Selling Items:</strong><br>
+            <p class="section-content">
+                <span class="sub-heading">Data:</span>
+                <ul>
+                    <li>Cold Coffee (1,361 units, 54,440) led in quantity.</li>
+                    <li>Sandwich (65,820) drove the most revenue.</li>
+                </ul>
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Metric:</span> Top 5 items contributed 62% of total revenue (~168,000).
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Observation:</span> Beverages like Cold Coffee and Sugarcane Juice dominated unit sales, whereas Fastfood items led revenue.
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Recommendation:</span> Prioritize stocking Fastfood items and run combo offers featuring Cold Coffee and Sandwiches to boost sales.
+            </p>
+
+            <hr>
+
+            <strong>Insight 3: Revenue Contribution by Item Type:</strong><br>
+            <p class="section-content">
+                <span class="sub-heading">Data:</span>
+                <ul>
+                    <li>Fastfood: 180,000 (68%).</li>
+                    <li>Beverages: 88,000 (32%).</li>
+                </ul>
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Metric:</span> Fastfood outperforms beverages in revenue contribution.
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Observation:</span> Fastfood is the primary revenue driver; however, Beverages have strong demand in volume.
+            </p>
+            <p class="section-content">
+                <span class="sub-heading">Recommendation:</span> Develop targeted promotions for Beverage combos to increase total revenue from the category.
+            </p>
+
+            <hr>
+
+            <strong>Recommendations:</strong><br>
+            <ul class="section-content">
+                <li><span class="sub-heading">Capitalize on Holidays:</span> Implement seasonal promotions during October and January to maintain peak sales momentum.</li>
+                <li><span class="sub-heading">Drive Fastfood Revenue:</span> Introduce value meal combos (e.g., Sandwich + Cold Coffee) to drive cross-category sales/to boost average revenue per transaction.</li>
+                <li><span class="sub-heading">Focus on Beverages:</span> Expand high-performing beverages like Cold Coffee with targeted promotions and volume discounts.</li>
+                <li><span class="sub-heading">Bundle Deals:</span> Combine high-selling items (Cold Coffee) with high-revenue items (Sandwich) to create attractive meal combos.</li>
+                <li><span class="sub-heading">Promotions for High-Volume Items:</span> Offer discounts or "Buy 2 Get 1 Free" deals on popular items like Cold Coffee and Sugarcane Juice to drive higher sales volumes.</li>
+            </ul>
+
+            <p class="section-content">By strategically leveraging both high-revenue and high-volume items, the business can optimize overall sales and customer satisfaction.</p>
+
+            <hr>
+
+            <strong>Communication:</strong><br>
+            <ul class="section-content">
+                <li><span class="sub-heading">To Managers:</span> Highlight key sales periods and the importance of Fastfood as the primary revenue contributor.</li>
+                <li><span class="sub-heading">To Staff:</span> Focus on upselling combos involving high-performing items like Cold Coffee and Sandwich.</li>
+                <li><span class="sub-heading">To Marketing:</span> Promote seasonal campaigns during October and December with combo offers and beverage discounts to optimize performance.</li>
+            </ul>
+    </div>
+    <footer>
+        <a href="index.html">Back to Projects</a>
+    </footer>

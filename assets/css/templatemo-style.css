@@ -627,6 +627,13 @@ figure.snip1321.hover:after {
   transform: rotateX(0);
   opacity: 0.9;
 }
+ 
+.project-title {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
 
 
 /* Contact Me */
