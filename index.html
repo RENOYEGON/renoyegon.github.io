@@ -14,6 +14,8 @@
     />
 
     <title>Reno Yegon</title>
+    <!-- Alternative for .png -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
 <!--
 Reflux Template
 https://templatemo.com/tm-531-reflux
@@ -26,8 +28,10 @@ https://templatemo.com/tm-531-reflux
     <link rel="stylesheet" href="assets/css/templatemo-style.css" />
     <link rel="stylesheet" href="assets/css/owl.css" />
     <link rel="stylesheet" href="assets/css/lightbox.css" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="path/to/projects.css">
   </head>
-
+  
   <body>
     <div id="page-wraper">
       <!-- Sidebar Menu -->
@@ -75,7 +79,7 @@ https://templatemo.com/tm-531-reflux
           </div>
         </div>
       </div>
-
+      
       <section class="section about-me" data-section="section1">
         <div class="container">
           <div class="section-heading">
@@ -190,95 +194,125 @@ https://templatemo.com/tm-531-reflux
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="section my-work" data-section="section3">
-        <div class="container">
-          <div class="section-heading">
-            <h2>Projects</h2>
-<div class="line-dec"></div>
-<span>
-  Curious about how I can bring data to life? Check out my latest projects to see how I’ve 
-  used Python, Excel, SQL, Power BI, and Tableau to deliver actionable insights and 
-  drive results. Each project showcases my expertise and passion for data analysis – 
-  click below to explore!
-</span>
-</div>
-<div class="row">
-  <div class="isotope-wrapper">
-    <form class="isotope-toolbar">
-      <label>
-        <input type="radio" data-type="*" checked="" name="isotope-filter" />
-        <span>all</span>
-      </label>
-      <label>
-        <input type="radio" data-type="python" name="isotope-filter" />
-        <span>Python Projects</span>
-      </label>
-      <label>
-        <input type="radio" data-type="excel" name="isotope-filter" />
-        <span>Excel Projects</span>
-      </label>
-      <label>
-        <input type="radio" data-type="sql" name="isotope-filter" />
-        <span>Sql Projects</span>
-      </label>
-      <label>
-        <input type="radio" data-type="power bi" name="isotope-filter" />
-        <span>Power Bi Projects</span>
-      </label>
-      <label>
-        <input type="radio" data-type="tableau" name="isotope-filter" />
-        <span>Tableau Projects</span>
-      </label>
-      <label>
-        <input type="radio" data-type="other" name="isotope-filter" />
-        <span>Other Projects</span>
-      </label>
-    </form>
-    <div class="isotope-box">
-      <div class="isotope-item" data-type="python">
-        <div class="project-link">
-          <a href="python_project.html" class="project-title">Python Project</a>
+        <style>
+          .project-wrapper {
+            display: flex; /* Align children horizontally */
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            gap: 20px; /* Space between items */
+            justify-content: space-between; /* Distribute space evenly */
+            text-align: center; /* Center-align all text within the projects */
+            margin: 20px; /* Add margin around the grid */
+        }
+        
+        .project-box {
+            flex: 1; /* Make all project boxes take equal space */
+            max-width: 30%; /* Limit the width of each project box */
+            box-sizing: border-box; /* Include padding and border in width */
+            padding: 10px; /* Add padding for spacing */
+            margin-bottom: 20px; /* Add space between rows */
+        }
+        
+        .project-image {
+            width: 100%; /* Make the image span the width of the project box */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 5px; /* Optional: rounded corners */
+            margin-bottom: 0px; /* Reduce spacing below the image */
+        }
+        
+        .project-title {
+            font-size: 25px; /* Font size for better readability */
+            font-weight: bold;
+            color: rgb(38, 129, 248); /* White text for visibility */
+            text-decoration: none;
+            margin: 5px 0; /* Minimal spacing around the title */
+            display: block; /* Ensure the title appears on a new line */
+        }
+        
+        .project-description {
+            font-size: 18px; /* Font size for better readability */
+            color: white; /* White text for visibility */
+            margin-top: 5px; /* Minimal spacing between the title and description */
+            line-height: 1.3; /* Improve readability */
+        }
+      </style>
+        <section class="section my-work" data-section="section3">
+          <div class="container">
+            <div class="section-heading">
+              <h2>Projects</h2>
+  <div class="line-dec"></div>
+  <span>
+    Curious about how I can bring data to life? Check out my latest projects to see how I’ve 
+    used Python, Excel, SQL, Power BI, and Tableau to deliver actionable insights and 
+    drive results. Each project showcases my expertise and passion for data analysis – 
+    click below to explore!
+  </span>
+  </div>
+  <div class="row">
+    <div class="isotope-wrapper">
+      <form class="isotope-toolbar">
+        <label>
+          <input type="radio" data-type="*" checked="" name="isotope-filter" />
+          <span>all</span>
+        </label>
+      </form>
+      <div class="project-wrapper">
+        <!-- Project 1 -->
+        <div class="project-box">
+          <a href="https://github.com/RENOYEGON/Restaurantsalestrendanalysis">
+            <img src="assets/images/Ola_Cabs.jpg" alt="Project 1" class="project-image">
+          </a>
+          <div class="project-link">
+            <a href="https://github.com/RENOYEGON/Restaurantsalestrendanalysis" class="project-title">SALESTREND</a>
+          </div>
+          <p class="project-description">The analysis evaluates the restaurant's sales trends, top-performing items, and overall revenue contributions from April 2022 to March 2023.</p>
+        </div>
+      
+        <!-- Project 2 -->
+        <div class="project-box">
+          <a href="project2.html">
+            <img src="assets/images/E-commerce Sales.png" alt="Project 2" class="project-image">
+          </a>
+          <div class="project-link">
+            <a href="project2.html" class="project-title">Project 2</a>
+          </div>
+          <p class="project-description">This is a description of Project 2.</p>
+        </div>
+      
+        <!-- Project 3 -->
+        <div class="project-box">
+          <a href="project3.html">
+            <img src="assets/images/Adventure Works.jpg" alt="Project 3" class="project-image">
+          </a>
+          <div class="project-link">
+            <a href="project3.html" class="project-title">Project 3</a>
+          </div>
+          <p class="project-description">This is a description of Project 3.</p>
         </div>
       </div>
+          <section class="ftco-section" style="background-image: url(images/bg_1.jpg)">
+    <div class="container"> 
+        <div class="row justify-content-center mb-3 pb-3">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <h2>More projects on<span> Github </span></h2>
+                <div class="heading">
+                    <h4>I love to solve business problems &amp; uncover hidden data stories</h4>
+                    <br>
+                    <p><a href="https://github.com/RENOYEGON" class="btn btn-primary py-3 px-5">GitHub</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+    
+        </section>
 
-      <div class="isotope-item" data-type="excel">
-        <div class="project-link">
-          <a href="your-excel-project-link.html" class="project-title">Excel Project</a>
-        </div>
-      </div>
-
-      <div class="isotope-item" data-type="power bi">
-        <div class="project-link">
-          <a href="your-power bi-project-link.html" class="project-title">Power Bi Project</a>
-        </div>
-      </div>  
-
-      <div class="isotope-item" data-type="sql">
-        <div class="project-link">
-          <a href="your-sql-project-link.html" class="project-title">Sql Project</a>
-        </div>
-      </div>
-
-      <div class="isotope-item" data-type="tableau">
-        <div class="project-link">
-          <a href="your-tableau-project-link.html" class="project-title">Tableau Project</a>
-        </div>
-      </div>
-      <div class="isotope-item" data-type="other">
-        <div class="project-link">
-          <a href="your-other-project-link.html" class="project-title">Other Project</a>
-        </div>
-      </div>
-    </div>
-  </section>
-      <section class="section contact-me" data-section="section4">
+        <section class="section contact-me" data-section="section4">
         <div class="container">
           <div class="section-heading">
             <h2>Contact Me</h2>
-<div class="line-dec"></div>
+             <div class="line-dec"></div>
 <span>
   Ready to make your day a little brighter? I'm just a click away! 
   Whether it's a question, a project, or just to say hello, 
@@ -294,11 +328,7 @@ https://templatemo.com/tm-531-reflux
     </a>
   </p>
 </div>
-    </div>
-  </form>
-</div>
-</div>
-</div>
+
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
